@@ -1,6 +1,7 @@
 from data_loader import load_data
 from feature_saver import save_features
 from feature_builder import build_features
+from encoder import encode_features
 
 
 def run_pipeline():
@@ -11,7 +12,8 @@ def run_pipeline():
     df = load_data(input_path)
 
     df = build_features(df)
-
+    df = encode_features(df)
+    
     print("\nDataset loaded successfully.")
     print(f"Dataset shape: {df.shape}")
 
