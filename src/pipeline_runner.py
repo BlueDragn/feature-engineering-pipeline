@@ -1,5 +1,6 @@
 from data_loader import load_data
 from feature_saver import save_features
+from feature_builder import build_features
 
 
 def run_pipeline():
@@ -9,8 +10,14 @@ def run_pipeline():
     # Load the data
     df = load_data(input_path)
 
+    df = build_features(df)
+
     print("\nDataset loaded successfully.")
     print(f"Dataset shape: {df.shape}")
+
+
+    print(df.head())
+    print(df.columns.tolist())
 
 
     # Save the processed data
