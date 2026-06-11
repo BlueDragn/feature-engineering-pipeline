@@ -6,5 +6,8 @@ def encode_features(df):
         "Age_Group",
         "Income_Band"
     ]
-    df = pd.get_dummies(df, columns=categorical_columns)
+    df = pd.get_dummies(
+        df,
+        columns=categorical_columns
+        ).astype(int)
     return df
